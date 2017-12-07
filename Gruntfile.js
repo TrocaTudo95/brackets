@@ -359,6 +359,9 @@ module.exports = function (grunt) {
         'jasmine_node': {
             projectRoot: 'src/extensibility/node/spec/'
         },
+        'json_checker': {
+            projectRoot: 'src/extensions/default/JsonChecker/'
+        },
         eslint: {
             grunt:  '<%= meta.grunt %>',
             src:    '<%= meta.src %>',
@@ -385,7 +388,7 @@ module.exports = function (grunt) {
     ]);
 
     // task: test
-    grunt.registerTask('test', ['eslint', 'jasmine', 'nls-check']);
+    grunt.registerTask('test', ['eslint', 'jasmine', 'json_checker', 'nls-check']);
 //    grunt.registerTask('test', ['eslint', 'jasmine', 'jasmine_node', 'nls-check']);
 
     // task: set-release
@@ -397,6 +400,7 @@ module.exports = function (grunt) {
         'write-config:dist',
         'eslint:src',
         'jasmine',
+        'json_checker',
         'clean',
         'less',
         'targethtml',
